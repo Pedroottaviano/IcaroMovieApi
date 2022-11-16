@@ -1,5 +1,8 @@
 package com.example.primerApi.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.Column;
@@ -9,6 +12,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -26,7 +32,7 @@ public class Movie {
         this.banner = banner;
     }
 
-    public Movie(Long id, String title, String gender, String director, String banner) {
+    /* public Movie(Long id, String title, String gender, String director, String banner) {
         this.id = id;
         this.title = title;
         this.gender = gender;
@@ -75,5 +81,5 @@ public class Movie {
 
     public void setBanner(String banner) {
         this.banner = banner;
-    }
+    } */
 }
