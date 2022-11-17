@@ -37,7 +37,7 @@ class MovieServiceTest {
 
     @Test
     void addMovieTest(){
-        Movie movie = new Movie(5L, "La venganza del 5",  Gender.Musical, "Stephen King", "13212312.jpg");
+        Movie movie = new Movie(5L, "La venganza del 5",  Gender.ACCION, "Stephen King", "13212312.jpg");
         when(movieRepository.save(any(Movie.class))).thenReturn(movie);
         assertNotNull(testedMovieService.addMovie(new Movie()));
     }
@@ -45,7 +45,7 @@ class MovieServiceTest {
     @Test
     void findMovieByIdTest(){
         Long movieId = 5L;
-        Movie mockedMovie = new Movie(movieId, "Aravinth P", Gender.Acción, "Hii", "aravinth.p@email.com");
+        Movie mockedMovie = new Movie(movieId, "Aravinth P", Gender.ACCION, "Hii", "aravinth.p@email.com");
         doReturn(Optional.of(mockedMovie)).when(movieRepository).findById(movieId);
         // Make the service call
         Movie movieByService = testedMovieService.findMovieById(movieId);
